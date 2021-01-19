@@ -1,14 +1,42 @@
 <div class="grid-container">
   <h1 class="mat-h1"></h1>
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+    <!-- <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card card-image" [style.background-image]="getImage(card.imageName)">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
+            {{card}}
           </mat-card-title>
         </mat-card-header>
       </mat-card>
-    </mat-grid-tile>
+    </mat-grid-tile> -->
+
+    <div class="container-fluid">
+      <div style="color: blue;">
+        <h1>{{title}}</h1>
+      </div>
+
+      <div style="width: 300px;">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="item">Item</label>
+            <input type="text" class="form-control"
+              placeholder="Enter content..." id="item"
+              required [(ngModel)]="itemValue" name="item">
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <h2>Content from Firebase</h2>
+      <div class="col-md-3">
+        <pre *ngFor="let item of items | async">{{item.content}}</pre>
+      </div>
+
+    </div>
+
   </mat-grid-list>
 </div>

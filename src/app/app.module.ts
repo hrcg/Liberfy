@@ -20,6 +20,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InterceptorService } from './loader/interceptor.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { InterceptorService } from './loader/interceptor.service';
     MatMenuModule,
     MatSlideToggleModule,
     FormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
