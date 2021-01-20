@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
     firebase: {
-      apiKey: 'AIzaSyCcR48BwxRRpUcc0qReEm7ZSQq5v1n99Tg',
+      apiKey: 'API_KEY_HIDDEN',
       authDomain: 'liberfy-5e8e8.firebaseapp.com',
       projectId: 'liberfy-5e8e8',
       storageBucket: 'liberfy-5e8e8.appspot.com',
