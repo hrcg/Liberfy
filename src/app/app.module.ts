@@ -24,6 +24,7 @@ import { InterceptorService } from './loader/interceptor.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { LoginComponent } from './authComponents/login/login.component';
@@ -62,6 +63,9 @@ import { UsersComponent } from './authComponents/users/users.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule
+  ],
+  exports: [
+    AngularFireAuthModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
