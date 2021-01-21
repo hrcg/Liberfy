@@ -1,21 +1,35 @@
 <div class="register-form-flex">
     <mat-card>
+      <form (ngSubmit)="register()">
       <mat-card-title>
         Register
       </mat-card-title>
       <mat-card-content>
         <mat-form-field>
-          <input matInput placeholder="Username">
+          <input type="email" name="email" class="form-control"
+          [(ngModel)]="email" matInput placeholder="Email" required>
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input type="password" matInput placeholder="Password"/>
+          <input type="password" name="password" class="form-control"
+          [(ngModel)]="password" matInput placeholder="Password" required/>
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
         <div class="register-button-flex-container">
-          <button mat-raised-button color="primary">Register</button>
+          <button typer="submit" mat-raised-button color="primary">Register</button>
         </div>
       </mat-card-actions>
-    </mat-card>
+    </form>
+    <div class="form-group">
+      <p *ngIf="errorMessage.length > 0" class="text-danger">
+          {{errorMessage}}</p>
+
+      <p *ngIf="error.message.length > 0" class="text-danger">
+          {{error.message}} </p>
+
+          <p *ngIf="message.length > 0" class="text-info">
+              {{message}} </p>
+  </div>
+</mat-card>
 

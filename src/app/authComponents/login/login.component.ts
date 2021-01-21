@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  email = '';
+  password = '';
+  errorMessage = ''; // validation error handle
+  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
 
-  ngOnInit() {
+  constructor(private authservice: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  clearErrorMessage() {
+    this.errorMessage = '';
+    this.error = { name: '', message: '' };
+  }
+
+  login() {
+    this.clearErrorMessage();
+    if (this.validateForm(this.email, this.password)) {
+      this.authservice.loginWithEmail(this.email, this.password)
+        .then(() => {
+         this.router.navigate(['/users']);
+        // tslint:disable-next-line: variable-name
+        }).catch(_error => {
+          this.error = _error;
+          this.router.navigate(['/login']);
+        });
+    }
+  }
+
+  validateForm(email: string, password: string) {
+    if (email.length === 0) {
+      this.errorMessage = 'Enter a valid email';
+      return false;
+    }
+
+    if (password.length === 0) {
+      this.errorMessage = 'Please enter a password';
+      return false;
+    }
+
+    if (password.length < 6) {
+      this.errorMessage = 'Password must be at least 6 characters long';
+      return false;
+    }
+
+    this.errorMessage = '';
+    return true;
+
   }
 
 }
