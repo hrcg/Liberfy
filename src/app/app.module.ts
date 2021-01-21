@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,8 +23,12 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InterceptorService } from './loader/interceptor.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { LoginComponent } from './authComponents/login/login.component';
+import { RegisterComponent } from './authComponents/register/register.component';
+import { UsersComponent } from './authComponents/users/users.component';
 
 
 @NgModule({
@@ -31,7 +36,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-    WishlistComponent
+    WishlistComponent,
+    LoginComponent,
+    RegisterComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +47,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
+    MatInputModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -52,6 +61,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     MatProgressBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
