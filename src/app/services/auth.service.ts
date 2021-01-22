@@ -66,7 +66,7 @@ export class AuthService {
 
   singout(): void {
     this.afu.signOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
 
