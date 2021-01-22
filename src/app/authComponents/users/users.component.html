@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
       <div class="text-info p-5" *ngIf = "authservice.currentUser">
-          <h2 class="alldata">
+          <h2 class="user-text-container">
               Welcome!
           </h2>
+          <img src="../../../assets/sweet_home.png" alt="Profile"
+          class="placeholder-image">
           <button class="btn-danger" (click)="authservice.singout()">Logout</button>
 
       </div>

@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +27,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { WishlistComponent } from './wishlist/wishlist.component';
 import { LoginComponent } from './authComponents/login/login.component';
 import { RegisterComponent } from './authComponents/register/register.component';
 import { UsersComponent } from './authComponents/users/users.component';
@@ -37,7 +37,6 @@ import { UsersComponent } from './authComponents/users/users.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-    WishlistComponent,
     LoginComponent,
     RegisterComponent,
     UsersComponent
@@ -51,6 +50,7 @@ import { UsersComponent } from './authComponents/users/users.component';
     MatInputModule,
     LayoutModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
