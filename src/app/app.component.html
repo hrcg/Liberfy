@@ -1,3 +1,7 @@
-<router-outlet></router-outlet>
+<mat-sidenav #sidenav role="navigation">
 
-<app-nav></app-nav>
+</mat-sidenav>
+
+<app-nav (sidenavToggle)="sidenav.toggle()">
+  <router-outlet></router-outlet>
+</app-nav>

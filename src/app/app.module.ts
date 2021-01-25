@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './pages/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,6 +30,8 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './authComponents/login/login.component';
 import { RegisterComponent } from './authComponents/register/register.component';
 import { UsersComponent } from './authComponents/users/users.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import { UsersComponent } from './authComponents/users/users.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,11 +61,22 @@ import { UsersComponent } from './authComponents/users/users.component';
     MatMenuModule,
     MatSlideToggleModule,
     FormsModule,
+    ReactiveFormsModule,
     MatProgressBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFirestoreModule
-  ],
+    AngularFirestoreModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'dictionary/:dict',
+        component: HomeComponent
+      }
+  ])
+],
   exports: [
     AngularFireAuthModule
   ],
