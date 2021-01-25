@@ -1,0 +1,53 @@
+<h1 style="text-align:center">Dictionary Search {{title}}</h1>
+  <mat-card class="content-form-flex">
+    <mat-card-header>
+        <mat-card-title class="title-class">Search for a definition</mat-card-title>
+    </mat-card-header>
+    <form #dictionaryForm="ngForm" novalidate (ngSubmit)="getWords(dictionaryForm)">
+      <mat-card-content>
+      <mat-form-field appearance="outline">
+            <mat-label>Enter a word</mat-label>
+            <mat-icon matSuffix>create</mat-icon>
+          <input matInput placeholder="EX. Beautiful" class="form-control"
+                  required #headword="ngModel"
+                  [(ngModel)]='query.headword'
+                  name="headword"
+                  pattern="[a-zA-Z]+">
+      </mat-form-field>
+        <div *ngIf="headword.errors && (headword.dirty || headword.touched)">
+          <mat-error [hidden]="!headword.errors.required">
+            <mat-label>Word is required</mat-label>
+           </mat-error>
+           <mat-error [hidden]="!headword.invalid">
+            <mat-label>Invalid word</mat-label>
+           </mat-error>
+        </div>
+      </mat-card-content>
+      <div class="button-flex-container">
+        <button mat-raised-button color="primary">Search</button>
+      </div>
+    </form>
+</mat-card>
+
+
+    <div *ngIf='results'>
+      <div *ngFor='let r of results' class='panel panel-default'>
+        <div class='panel-heading'>
+          <h3>{{r.headword}}</h3>
+        </div>
+        <div class='panel-body'>
+          <div class='col-md-12' *ngIf="r.part_of_speech">
+            <p><b>Parts of Speech:</b> {{r.part_of_speech}}</p>
+          </div>
+          <div class='col-md-12' *ngIf="r.pronunciations">
+            <p><b>Pronunciations</b></p>
+            <div *ngFor='let p of r.pronunciations' class='col-md-12'>
+              <span>IPA: {{p.ipa}} <span *ngIf="p.lang">({{p.lang}})</span></span>
+            </div>
+          </div>
+          <div *ngFor='let s of r.senses' class='col-md-12'>
+            <p *ngIf="s.definition"><b>Definition:</b> {{s.definition}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
