@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { LoaderService } from '../loader/loader.service';
+import { LoaderService } from '../../loader/loader.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,6 +22,9 @@ export class NavComponent implements OnInit {
       shareReplay()
     );
 
+  @Output() public sidenavToggle = new EventEmitter();
+
+  isOpened = false;
   constructor(private breakpointObserver: BreakpointObserver, private router: Router,
               public loaderService: LoaderService, public authservice: AuthService) { }
 
