@@ -4,16 +4,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from '../app/pages/user/login/login.component';
 import { RegisterComponent } from '../app/pages/user/register/register.component';
 import { ProfileComponent } from '../app/pages/user/profile/profile.component';
-// import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
-
-// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-// const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+import { LoginGuardGuard } from './guard/login-guard.guard';
+import { ProfileGuardGuard } from './guard/profile-guard.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuardGuard]},
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [ProfileGuardGuard] },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

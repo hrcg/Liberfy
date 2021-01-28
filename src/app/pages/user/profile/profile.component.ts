@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
   posts: any;
