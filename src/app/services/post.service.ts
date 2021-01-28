@@ -9,7 +9,7 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   public getPosts() {
-    return this.http.get("https://jsonplaceholder.typicode.com/posts").pipe();
+    return this.http.get('https://jsonplaceholder.typicode.com/posts').pipe();
   }
 }
 
