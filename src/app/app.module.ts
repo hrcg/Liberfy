@@ -27,9 +27,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { LoginComponent } from './authComponents/login/login.component';
-import { RegisterComponent } from './authComponents/register/register.component';
-import { UsersComponent } from './authComponents/users/users.component';
+import { LoginComponent } from '../app/pages/user/login/login.component';
+import { RegisterComponent } from '../app/pages/user/register/register.component';
+import { ProfileComponent } from '../app/pages/user/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -41,7 +41,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

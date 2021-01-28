@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Lexonjes';
+  title = 'Përkufizim';
 
   itemValue = '';
   items: Observable<any[]>;
