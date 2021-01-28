@@ -1,22 +1,37 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
-
-.content-form-flex {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -180px;
-  margin-left: -130px;
-}
-
 .title-class {
   width: 100%;
 }
 
-.button-flex-container {
-  justify-content: center;
+.content-form-flex {
+  width: 250px;
+  height: 150px;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
+.mat-card-search-result {
+  width: 250px;
+  display:flexbox;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -20px;
+}
+
+.icon-cursor-pointer {
+  cursor: pointer;
+}

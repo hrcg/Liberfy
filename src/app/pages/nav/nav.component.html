@@ -24,11 +24,11 @@
 
         <span class="logo" matTooltip="Home" aria-hidden="false" aria-label="Home"
               (click)="redirectToHome()">
-                          Përkufizim</span>
+                          <img src="../../../assets/aurelia_20.svg"></span>
         <span style="flex:auto;"></span>
 
     <ng-container *ngIf = "authservice.currentUser">
-        <button mat-icon-button routerLink="/users">
+        <button mat-icon-button routerLink="/profile">
             <mat-icon matTooltip="Profile"
                       aria-hidden="false"
                       aria-label="Profile">
