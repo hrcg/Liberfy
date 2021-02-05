@@ -1,82 +1,65 @@
-<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode' :isDarkTheme}">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="'over'"
-      [opened]="isOpened">
-
-    <mat-nav-list>
-      <a mat-list-item routerLink="/home"><mat-icon>home</mat-icon>Home</a>
-      <a mat-list-item href="#"><mat-icon>search</mat-icon>Search</a>
-      <ng-container *ngIf = "authservice.currentUser">
-        <a mat-list-item href="#"><mat-icon>favorite
-            </mat-icon>Favourites
-          </a>
-    </ng-container>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-
-    <!-- <div *ngIf="loaderService.isLoading | async" class="loader-container">
+<mat-sidenav-container
+  class="sidenav-container mat-app-background"
+  [ngClass]="{ 'dark-theme-mode': isDarkTheme }"
+>
+  <!-- <div *ngIf="loaderService.isLoading | async" class="loader-container">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div> -->
 
-<mat-toolbar color="primary">
+  <mat-toolbar color="primary">
+    <span
+      class="logo"
+      matTooltip="Home"
+      aria-hidden="false"
+      aria-label="Home"
+      (click)="redirectToHome()"
+    >
+      <img src="../../../assets/aurelia_20.svg" alt="logo"
+    /></span>
+    <span style="flex: auto"></span>
 
-        <span class="logo" matTooltip="Home" aria-hidden="false" aria-label="Home"
-              (click)="redirectToHome()">
-                          <img src="../../../assets/aurelia_20.svg" alt="logo"></span>
-        <span style="flex:auto;"></span>
-
-    <ng-container *ngIf = "authservice.currentUser">
-        <button mat-icon-button routerLink="/profile">
-            <mat-icon matTooltip="Profile"
-                      aria-hidden="false"
-                      aria-label="Profile">
-                      account_circle
-            </mat-icon>
-        </button>
-    </ng-container>
-
-    <ng-container *ngIf = "authservice.currentUser">
-        <button mat-icon-button>
-             <mat-icon matTooltip="Create"
-                       aria-hidden="false"
-                       aria-label="Create">
-                       backup
-            </mat-icon>
-        </button>
-    </ng-container>
-
-
-    <ng-container *ngIf = "!authservice.currentUser">
-        <button mat-icon-button routerLink="/login">
-            <mat-icon matTooltip="Login"
-                      aria-hidden="false"
-                      aria-label="Login">
-                      fingerprint
-            </mat-icon>
-        </button>
-    </ng-container>
-
-    <ng-container *ngIf = "authservice.currentUser">
-      <button mat-icon-button (click)="authservice.singout()">
-          <mat-icon matTooltip="Logout"
-                    aria-hidden="false"
-                    aria-label="Logout">
-                    power_settings_new
-          </mat-icon>
+    <ng-container *ngIf="authservice.currentUser">
+      <button mat-icon-button routerLink="/profile">
+        <mat-icon matTooltip="Profile" aria-hidden="false" aria-label="Profile">
+          account_circle
+        </mat-icon>
       </button>
     </ng-container>
 
-    <mat-slide-toggle matTooltip="Theme"
-                      aria-hidden="false"
-                      aria-label="Theme"
-                      [(ngModel)]="isDarkTheme" labelPosition="before" (change)="storeThemeSelection()">
+    <ng-container *ngIf="authservice.currentUser">
+      <button mat-icon-button>
+        <mat-icon matTooltip="Create" aria-hidden="false" aria-label="Create">
+          backup
+        </mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="!authservice.currentUser">
+      <button mat-icon-button routerLink="/login">
+        <mat-icon matTooltip="Login" aria-hidden="false" aria-label="Login">
+          fingerprint
+        </mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="authservice.currentUser">
+      <button mat-icon-button (click)="authservice.singout()">
+        <mat-icon matTooltip="Logout" aria-hidden="false" aria-label="Logout">
+          power_settings_new
+        </mat-icon>
+      </button>
+    </ng-container>
+
+    <mat-slide-toggle
+      matTooltip="Theme"
+      aria-hidden="false"
+      aria-label="Theme"
+      [(ngModel)]="isDarkTheme"
+      labelPosition="before"
+      (change)="storeThemeSelection()"
+    >
       <!-- <mat-icon>bedtime</mat-icon> -->
     </mat-slide-toggle>
-
-
-</mat-toolbar>
-<router-outlet></router-outlet>
-</mat-sidenav-content>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
 </mat-sidenav-container>
