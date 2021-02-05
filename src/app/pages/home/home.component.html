@@ -1,60 +1,93 @@
-<h1 style="text-align:center">Përkufizim</h1>
-  <mat-card class="content-form-flex">
-    <div class="parent">
-    <mat-card-header>
-        <mat-card-title class="title-class">Search for a definition</mat-card-title>
-    </mat-card-header>
-  </div>
-    <form #dictionaryForm="ngForm" novalidate (ngSubmit)="getWords(dictionaryForm)"
-    (keydown.enter)="getWords(dictionaryForm)">
-      <mat-card-content>
-        <div class="parent">
-      <mat-form-field appearance="outline">
-            <mat-label>Enter a word</mat-label>
-            <mat-icon class="icon-cursor-pointer" matSuffix (click)="getWords(dictionaryForm)">
-              search</mat-icon>
-          <input matInput placeholder="EX. Beautiful" class="form-control"
-                  required #headword="ngModel"
-                  [(ngModel)]='query.headword'
-                  name="headword"
-                  pattern="[a-zA-Z]+">
-      </mat-form-field>
-    </div>
-        <div *ngIf="headword.errors && (headword.dirty || headword.touched)">
-          <mat-error [hidden]="!headword.errors.required">
-            <mat-label>Word is required</mat-label>
-           </mat-error>
-           <mat-error [hidden]="!headword.invalid">
-            <mat-label>Invalid word</mat-label>
-           </mat-error>
-        </div>
-      </mat-card-content>
-      <div class="button-container">
-        <button mat-raised-button color="accent">Search</button>
+<div class="master-container">
+  <div>
+    <h1 style="text-align: center">Përkufizim</h1>
+    <mat-card class="content-form-flex">
+      <div class="parent">
+        <mat-card-header>
+          <mat-card-title class="title-class"
+            >Search for a definition</mat-card-title
+          >
+        </mat-card-header>
       </div>
-    </form>
-</mat-card>
-
-<mat-card class="mat-card-search-result">
-    <div *ngIf='results'>
-      <div *ngFor='let r of results' class='panel panel-default'>
-        <div class='panel-heading'>
-          <h3>{{r.headword}}</h3>
-        </div>
-        <div class='panel-body'>
-          <div class='col-md-12' *ngIf="r.part_of_speech">
-            <p><b>Parts of Speech:</b> {{r.part_of_speech}}</p>
-          </div>
-          <div class='col-md-12' *ngIf="r.pronunciations">
-            <p><b>Pronunciations</b></p>
-            <div *ngFor='let p of r.pronunciations' class='col-md-12'>
-              <span>IPA: {{p.ipa}} <span *ngIf="p.lang">({{p.lang}})</span></span>
+      <form
+        class="form-class"
+        #dictionaryForm="ngForm"
+        novalidate
+        (ngSubmit)="getWords(dictionaryForm)"
+        (keydown.enter)="getWords(dictionaryForm)"
+      >
+        <mat-card-content class="width-class">
+          <div class="parent">
+            <mat-form-field class="width-class" outline>
+              <mat-label>Enter a word</mat-label>
+              <mat-icon
+                class="icon-cursor-pointer"
+                matSuffix
+                (click)="getWords(dictionaryForm)"
+              >
+                search</mat-icon
+              >
+              <input
+                matInput
+                placeholder="EX. Beautiful"
+                class="form-control"
+                required
+                #headword="ngModel"
+                [(ngModel)]="query.headword"
+                name="headword"
+                pattern="[a-zA-Z]+"
+              />
+            </mat-form-field>
+            <div
+              *ngIf="headword.errors && (headword.dirty || headword.touched)"
+              class="width-class"
+            >
+              <mat-error
+                [hidden]="!headword.errors.required"
+                class="width-class"
+              >
+                <mat-label class="width-class">Word is required</mat-label>
+              </mat-error>
+              <mat-error [hidden]="!headword.invalid">
+                <mat-label class="width-class">Invalid word</mat-label>
+              </mat-error>
             </div>
           </div>
-          <div *ngFor='let s of r.senses' class='col-md-12'>
-            <p *ngIf="s.definition"><b>Definition:</b> {{s.definition}}</p>
+        </mat-card-content>
+        <div class="button-container">
+          <button mat-raised-button color="accent" [disabled]="headword.invalid">Search</button>
+        </div>
+      </form>
+    </mat-card>
+    <br />
+    <mat-card class="mat-card-search-result" *ngIf="results.length != 0">
+      <div>
+        <div *ngFor="let r of results" class="panel panel-default">
+          <div class="panel-heading">
+            <h3>{{ r.headword }}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12" *ngIf="r.part_of_speech">
+              <p><b>Parts of Speech:</b> {{ r.part_of_speech }}</p>
+            </div>
+            <div class="col-md-12" *ngIf="r.pronunciations">
+              <p><b>Pronunciations</b></p>
+              <div *ngFor="let p of r.pronunciations" class="col-md-12">
+                <span
+                  >IPA: {{ p.ipa }}
+                  <span *ngIf="p.lang">({{ p.lang }})</span></span
+                >
+              </div>
+            </div>
+            <div *ngFor="let s of r.senses" class="col-md-12">
+              <p *ngIf="s.definition"><b>Definition:</b> {{ s.definition }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </mat-card>
+    </mat-card>
+  </div>
+  <div>
+    <p>Insert Footer here</p>
+  </div>
+</div>

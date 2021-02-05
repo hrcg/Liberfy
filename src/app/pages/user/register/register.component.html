@@ -1,37 +1,55 @@
 <div class="register-form-flex">
-    <mat-card>
-      <form (ngSubmit)="register()" (keydown.enter)="register()">
-      <mat-card-title>
-        Register
-      </mat-card-title>
+  <mat-card>
+    <form (ngSubmit)="register()" (keydown.enter)="register()">
+      <mat-card-title> Register </mat-card-title>
       <mat-card-content>
         <mat-form-field>
-          <input type="email" name="email" class="form-control"
-          [(ngModel)]="email" matInput placeholder="Email" required>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            [(ngModel)]="email"
+            matInput
+            placeholder="Email"
+            required
+          />
         </mat-form-field>
-        <br/>
+        <br />
         <mat-form-field>
-          <input type="password" name="password" class="form-control"
-          [(ngModel)]="password" matInput placeholder="Password" required/>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            [(ngModel)]="password"
+            matInput
+            placeholder="Password"
+            required
+          />
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions>
         <div class="button-flex-container">
-          <button mat-raised-button color="primary" matTooltip="Login instead"
-          routerLink="/login">Login</button>
           <button mat-raised-button color="primary">Register</button>
         </div>
+        <div class="login-redirect-class">
+        <span routerLink="/login"
+        >Already have an account?</span
+      >
+    </div>
       </mat-card-actions>
     </form>
-    <div class="form-group">
-      <p *ngIf="errorMessage.length > 0" class="text-danger">
-          {{errorMessage}}</p>
+    <div>
+      <p *ngIf="errorMessage.length > 0">
+        {{ errorMessage }}
+      </p>
 
-      <p *ngIf="error.message.length > 0" class="text-danger">
-          {{error.message}} </p>
+      <p *ngIf="error.message.length > 0">
+        {{ error.message }}
+      </p>
 
-          <p *ngIf="message.length > 0" class="text-info">
-              {{message}} </p>
-  </div>
-</mat-card>
-
+      <p *ngIf="message.length > 0">
+        {{ message }}
+      </p>
+    </div>
+  </mat-card>
+</div>

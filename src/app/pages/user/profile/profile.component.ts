@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { Router, Routes } from '@angular/router';
-import { PostService } from 'src/app/services/post.service';
+import { Router } from '@angular/router';
+// import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,16 +9,16 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  posts: any;
-  constructor(public authservice: AuthService, private router: Router, private postService: PostService) { }
+  // posts: any;
+  constructor(public authservice: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.postService.getPosts().subscribe(data => {
-      console.log(data);
-      this.posts = data;
-    });
-  }
+  // ngOnInit(): void {
+  //   this.postService.getPosts().subscribe(data => {
+  //     console.log(data);
+  //     this.posts = data;
+  //   });
+  // }
 
 }

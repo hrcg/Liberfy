@@ -1,62 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../../../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
+  email = "";
+  password = "";
+  errorMessage = ""; // validation error handle
+  error: { name: string; message: string } = { name: "", message: "" }; // for firbase error handle
 
-  email = '';
-  password = '';
-  errorMessage = ''; // validation error handle
-  error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
+  constructor(private authservice: AuthService, private router: Router) {}
 
-  constructor(private authservice: AuthService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   clearErrorMessage() {
-    this.errorMessage = '';
-    this.error = { name: '', message: '' };
+    this.errorMessage = "";
+    this.error = { name: "", message: "" };
   }
 
   login() {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
-      this.authservice.loginWithEmail(this.email, this.password)
+      this.authservice
+        .loginWithEmail(this.email, this.password)
         .then(() => {
-         this.router.navigate(['/home']);
-        // tslint:disable-next-line: variable-name
-        }).catch(_error => {
+          this.router.navigate(["/home"]);
+          // tslint:disable-next-line: variable-name
+        })
+        .catch((_error) => {
           this.error = _error;
-          this.router.navigate(['/login']);
+          this.router.navigate(["/login"]);
         });
     }
   }
 
   validateForm(email: string, password: string) {
     if (email.length === 0) {
-      this.errorMessage = 'Enter a valid email';
+      this.errorMessage = "Enter a valid email";
       return false;
     }
 
     if (password.length === 0) {
-      this.errorMessage = 'Please enter a password';
+      this.errorMessage = "Please enter a password";
       return false;
     }
 
     if (password.length < 6) {
-      this.errorMessage = 'Password must be at least 6 characters long';
+      this.errorMessage = "Password must be at least 6 characters long";
       return false;
     }
 
-    this.errorMessage = '';
+    this.errorMessage = "";
     return true;
-
   }
-
 }
