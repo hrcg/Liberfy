@@ -7,16 +7,13 @@
     </div> -->
 
   <mat-toolbar color="primary">
-    <span
-      class="logo"
-      matTooltip="Home"
-      aria-hidden="false"
-      aria-label="Home"
-      (click)="redirectToHome()"
-    >
-      <img src="../../../assets/aurelia_20.svg" alt="logo"
-    /></span>
-    <span style="flex: auto"></span>
+    <ng-container>
+      <button mat-icon-button routerLink="/home">
+        <mat-icon matTooltip="Home" aria-hidden="false" aria-label="Home">
+          home
+        </mat-icon>
+      </button>
+    </ng-container>
 
     <ng-container *ngIf="authservice.currentUser">
       <button mat-icon-button routerLink="/profile">

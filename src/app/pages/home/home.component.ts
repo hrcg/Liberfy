@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   results: any[] = [];
   constructor(private http: HttpClient, private route: ActivatedRoute) {
 }
+  emailstring= "mailto:contact@perkufizim.xyz?Subject=From&website";
+
   ngOnInit() {
     this.query = {
       headword: '',

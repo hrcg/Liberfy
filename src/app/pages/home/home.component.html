@@ -1,14 +1,12 @@
 <div class="master-container">
+  <header id="h" class="header">
+    <div class="brand">
+        <a href="/home" title="Dictionary">PËRKUFIZIM</a>
+        <h1>English Dictionary</h1>
+    </div>
+</header>
   <div>
-    <h1 style="text-align: center">Përkufizim</h1>
     <mat-card class="content-form-flex">
-      <div class="parent">
-        <mat-card-header>
-          <mat-card-title class="title-class"
-            >Search for a definition</mat-card-title
-          >
-        </mat-card-header>
-      </div>
       <form
         class="form-class"
         #dictionaryForm="ngForm"
@@ -18,7 +16,7 @@
       >
         <mat-card-content class="width-class">
           <div class="parent">
-            <mat-form-field class="width-class" outline>
+            <mat-form-field class="form-class" outline>
               <mat-label>Enter a word</mat-label>
               <mat-icon
                 class="icon-cursor-pointer"
@@ -46,17 +44,11 @@
                 [hidden]="!headword.errors.required"
                 class="width-class"
               >
-                <mat-label class="width-class">Word is required</mat-label>
-              </mat-error>
-              <mat-error [hidden]="!headword.invalid">
-                <mat-label class="width-class">Invalid word</mat-label>
+                <mat-label>Word is required</mat-label>
               </mat-error>
             </div>
           </div>
         </mat-card-content>
-        <div class="button-container">
-          <button mat-raised-button color="accent" [disabled]="headword.invalid">Search</button>
-        </div>
       </form>
     </mat-card>
     <br />
@@ -87,7 +79,14 @@
       </div>
     </mat-card>
   </div>
-  <div>
-    <p>Insert Footer here</p>
-  </div>
+  <footer>
+    <p class="socials">
+    </p>
+    <nav role="navigation">
+      <a title="GitHub" href="https://github.com/hrcg">GitHub</a> |
+      <a title="LinkedIn" href="https://linkedin.com">LinkedIn</a> |
+      <a title="Contact" [href]="emailstring" target="_top">Contact</a>
+    </nav>
+    <p class="copyrights">© PËRKUFIZIM ❤ DICTIONARY</p>
+  </footer>
 </div>
