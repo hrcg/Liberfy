@@ -32,9 +32,9 @@ import { RegisterComponent } from '../app/pages/user/register/register.component
 import { ProfileComponent } from '../app/pages/user/profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ProfileGuardGuard } from '../app/guard/profile-guard.guard';
 import { ResetpasswordComponent } from './pages/user/resetpassword/resetpassword.component';
-import { LoginGuardGuard } from '../app/guard/login-guard.guard';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+
 
 @NgModule({
   declarations: [
@@ -84,8 +84,7 @@ import { LoginGuardGuard } from '../app/guard/login-guard.guard';
     AngularFireAuthModule
   ],
   providers: [
-    ProfileGuardGuard,
-    LoginGuardGuard,
+    AngularFireAuthGuard,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
