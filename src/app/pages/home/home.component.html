@@ -11,8 +11,8 @@
         class="form-class"
         #dictionaryForm="ngForm"
         novalidate
-        (ngSubmit)="getWords(dictionaryForm)"
-        (keydown.enter)="getWords(dictionaryForm)"
+        (ngSubmit)="getWords()"
+        (keydown.enter)="getWords()"
       >
         <mat-card-content class="width-class">
           <div class="parent">
@@ -21,7 +21,7 @@
               <mat-icon
                 class="icon-cursor-pointer"
                 matSuffix
-                (click)="getWords(dictionaryForm)"
+                (click)="getWords()"
               >
                 search</mat-icon
               >
