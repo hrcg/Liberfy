@@ -1,10 +1,10 @@
 <div class="master-container">
   <header id="h" class="header">
     <div class="brand">
-        <a href="Liberfy/home" title="Dictionary">PËRKUFIZIM</a>
-        <h1>English Dictionary</h1>
+      <a href="Liberfy/home" title="Dictionary">PËRKUFIZIM</a>
+      <h1>English Dictionary</h1>
     </div>
-</header>
+  </header>
   <div>
     <mat-card class="content-form-flex">
       <form
@@ -19,6 +19,9 @@
             <mat-form-field class="form-class" outline>
               <mat-label>Enter a word</mat-label>
               <mat-icon
+                matTooltip="Search"
+                aria-hidden="false"
+                aria-label="Search"
                 class="icon-cursor-pointer"
                 matSuffix
                 (click)="getWords()"
@@ -80,12 +83,32 @@
     </mat-card>
   </div>
   <footer>
-    <p class="socials">
-    </p>
+    <p class="socials"></p>
     <nav role="navigation">
-      <a title="GitHub" target="_blank" rel="noopener noreferrer" href="https://github.com/hrcg">GitHub</a> |
-      <a title="LinkedIn" target="_blank" rel="noopener noreferrer" href="https://linkedin.com">LinkedIn</a> |
-      <a title="Contact" target="_blank" rel="noopener noreferrer" [href]="emailstring" target="_top">Contact</a>
+      <a
+        title="GitHub"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/hrcg"
+        >GitHub</a
+      >
+      |
+      <a
+        title="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://linkedin.com"
+        >LinkedIn</a
+      >
+      |
+      <a
+        title="Contact"
+        target="_blank"
+        rel="noopener noreferrer"
+        [href]="emailstring"
+        target="_top"
+        >Contact</a
+      >
     </nav>
     <p class="copyrights">© PËRKUFIZIM ❤ DICTIONARY</p>
   </footer>
