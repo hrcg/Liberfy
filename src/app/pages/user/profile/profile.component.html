@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row justify-content-center">
-      <div class="text-info p-5" *ngIf = "authservice.currentUser">
-          <h2 class="user-text-container">
+  <div>
+      <div *ngIf = "authservice.currentUser">
+          <h2>
               Welcome!
           </h2>
           <!-- <div *ngFor="let post of posts">
@@ -9,8 +9,7 @@
             <p>{{post.body}}</p>
             <br>
           </div> -->
-          <button class="btn-danger" (click)="authservice.singout()">Logout</button>
-
+          <button (click)="authservice.singout()">Logout</button>
       </div>
   </div>
 </div>
