@@ -13,3 +13,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .user-text-container {
   text-align: center;
 }
+
+.mat-tooltip.tooltip
+{
+    font-size: 13px;
+}
