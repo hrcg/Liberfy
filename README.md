@@ -1,6 +1,6 @@
 # Liberfy
 
-hrcg.github.io/Liberfy/home
+https://hrcg.github.io/Liberfy/home
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
 
