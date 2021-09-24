@@ -2,7 +2,7 @@
 
 [Perkufizim](https://perkufizim.netlify.app/home) is a dictionary site made using Angular and dictionary API.
 
-# Getting Startedgit
+# Getting Started
 
 To get started, I suggest you take a look at Github's quickstart guide [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo), as it goes into the necessary detail to get this project up and running.
 
