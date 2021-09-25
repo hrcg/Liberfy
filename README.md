@@ -1,6 +1,6 @@
 # ![Alt Text](https://i.imgur.com/BY5hNJb.png)
 
-[Perkufizim](https://perkufizim.netlify.app/home) is a dictionary site made using Angular and dictionary API.
+[Perkufizim](https://perkufizim.netlify.app/) is a dictionary site made using Angular and dictionary API.
 
 # Getting Started
 
